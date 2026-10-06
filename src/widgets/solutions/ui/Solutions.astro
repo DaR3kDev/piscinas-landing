@@ -1,0 +1,93 @@
+---
+import { IconArrowRight, IconDroplets, IconPool, IconSettings, IconTool } from '@tabler/icons-react'
+
+const solutions = [
+  {
+    title: 'Mantenimiento',
+    description: 'Productos para el cuidado, limpieza y mantenimiento de tu piscina.',
+    items: ['Productos químicos', 'Limpieza', 'Tratamiento del agua'],
+    icon: IconDroplets,
+  },
+  {
+    title: 'Equipamiento',
+    description: 'Equipos y componentes para el correcto funcionamiento de la piscina.',
+    items: ['Bombas', 'Filtros', 'Sistemas de circulación'],
+    icon: IconSettings,
+  },
+  {
+    title: 'Repuestos',
+    description: 'Repuestos para mantener tus equipos funcionando correctamente.',
+    items: ['Bombas y filtros', 'Válvulas', 'Componentes'],
+    icon: IconTool,
+  },
+  {
+    title: 'Accesorios',
+    description: 'Accesorios para facilitar el cuidado y disfrutar mejor de tu piscina.',
+    items: ['Accesorios de limpieza', 'Elementos de seguridad', 'Complementos'],
+    icon: IconPool,
+  },
+]
+---
+
+<section id="soluciones" class="section-reveal border-b border-gray-200 bg-white">
+  <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+    <!-- Header -->
+    <div class="max-w-2xl">
+      <div class="mb-5 inline-flex items-center gap-3">
+        <span class="h-px w-8 bg-gray-950" aria-hidden="true"></span>
+
+        <span class="text-sm font-medium tracking-wide text-gray-600"> Nuestras soluciones </span>
+      </div>
+
+      <h2 class="text-3xl font-semibold tracking-[-0.02em] text-gray-950 sm:text-4xl lg:text-5xl">
+        Todo lo que necesitas para tu piscina.
+      </h2>
+
+      <p class="mt-5 text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">
+        Encuentra productos, equipos, repuestos y accesorios para el mantenimiento y funcionamiento
+        de tu piscina.
+      </p>
+    </div>
+
+    <!-- Solutions -->
+    <div class="mt-12 grid border-t border-gray-200 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4">
+      {
+        solutions.map(({ title, description, items, icon: Icon }, index) => (
+          <article
+            class:list={[
+              'group px-1 py-8 sm:px-6 lg:px-8',
+              index > 0 && 'border-gray-200 sm:border-l',
+              index >= 2 && 'border-t sm:border-t-0',
+            ]}
+          >
+            <Icon
+              className="h-6 w-6 text-gray-950 transition-transform duration-300 group-hover:-translate-y-0.5"
+              strokeWidth={1.7}
+            />
+
+            <h3 class="mt-5 text-lg font-semibold text-gray-950">{title}</h3>
+
+            <p class="mt-2 text-sm leading-6 text-gray-500">{description}</p>
+
+            <ul class="mt-5 space-y-2">
+              {items.map(item => (
+                <li class="flex items-center gap-2 text-sm text-gray-600">
+                  <span class="h-1 w-1 shrink-0 rounded-full bg-gray-400" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href="#productos"
+              class="group/link mt-6 inline-flex items-center gap-2 text-sm font-semibold text-gray-950 transition-colors duration-200 hover:text-gray-600"
+            >
+              Ver productos
+              <IconArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-1" />
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

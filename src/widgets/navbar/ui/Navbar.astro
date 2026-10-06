@@ -1,0 +1,111 @@
+---
+import { Image } from 'astro:assets'
+import { IconMenu2, IconX } from '@tabler/icons-react'
+
+const navbarItems = [
+  { name: 'Inicio', href: '#hero' },
+  { name: 'Soluciones', href: '#soluciones' },
+  { name: 'Productos', href: '#productos' },
+  { name: 'Nosotros', href: '#nosotros' },
+  { name: 'Contacto', href: '#contacto' },
+]
+---
+
+<nav
+  id="navbar"
+  class="fixed left-0 top-0 z-50 w-full border-b border-gray-200/80 bg-white/90 backdrop-blur-md transition-shadow duration-300"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <!-- Logo -->
+      <a href="#hero" class="shrink-0" aria-label="Inicio">
+        <Image
+          src="/logo.png"
+          alt="Logo"
+          class="h-10 w-10 rounded-full object-cover"
+          width={40}
+          height={40}
+        />
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden flex-1 items-center justify-center gap-8 md:flex">
+        {
+          navbarItems.map(item => (
+            <a
+              href={item.href}
+              class="nav-link text-sm font-medium text-gray-600 transition-colors duration-200 hover:text-gray-950"
+            >
+              {item.name}
+            </a>
+          ))
+        }
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="menu-btn"
+        type="button"
+        class="text-gray-700 transition-colors hover:text-gray-950 md:hidden"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <IconMenu2 id="icon-open" className="h-6 w-6" />
+
+        <IconX id="icon-close" className="hidden h-6 w-6" />
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden border-t border-gray-200 bg-white md:hidden">
+    <div class="flex flex-col px-6 py-5">
+      {
+        navbarItems.map(item => (
+          <a
+            href={item.href}
+            class="mobile-link border-b border-gray-100 py-4 text-center text-base font-medium text-gray-700 transition-colors hover:text-gray-950 last:border-b-0"
+          >
+            {item.name}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</nav>
+
+<script is:inline>
+  const menuBtn = document.getElementById('menu-btn')
+  const mobileMenu = document.getElementById('mobile-menu')
+  const iconOpen = document.getElementById('icon-open')
+  const iconClose = document.getElementById('icon-close')
+  const navbar = document.getElementById('navbar')
+
+  menuBtn?.addEventListener('click', () => {
+    const isOpen = !mobileMenu?.classList.contains('hidden')
+
+    mobileMenu?.classList.toggle('hidden')
+    iconOpen?.classList.toggle('hidden')
+    iconClose?.classList.toggle('hidden')
+
+    menuBtn.setAttribute('aria-expanded', String(!isOpen))
+  })
+
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden')
+      iconOpen?.classList.remove('hidden')
+      iconClose?.classList.add('hidden')
+      menuBtn?.setAttribute('aria-expanded', 'false')
+    })
+  })
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      navbar?.classList.add('shadow-sm')
+    } else {
+      navbar?.classList.remove('shadow-sm')
+    }
+  })
+</script>

@@ -1,0 +1,58 @@
+---
+import { IconArrowRight, IconBrandWhatsapp } from '@tabler/icons-react'
+
+const whatsappUrl = 'https://wa.me/573173552802'
+---
+
+<section id="hero" class="border-b border-gray-200 bg-white">
+  <div class="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+    <div class="max-w-4xl">
+      <!-- Eyebrow -->
+      <div class="mb-6 inline-flex items-center gap-3">
+        <span class="h-px w-8 bg-gray-950" aria-hidden="true"></span>
+
+        <span class="text-sm font-medium tracking-wide text-gray-600">
+          Soluciones para piscinas
+        </span>
+      </div>
+
+      <!-- Heading -->
+      <h1
+        class="text-5xl font-semibold leading-[1.05] tracking-[-0.03em] text-gray-950 sm:text-6xl lg:text-7xl"
+      >
+        Todo lo que necesitas para
+        <span class="text-gray-500"> tu piscina.</span>
+      </h1>
+
+      <!-- Description -->
+      <p class="mt-6 max-w-2xl text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">
+        Repuestos, accesorios y productos para el mantenimiento y cuidado de piscinas. Encuentra
+        soluciones para cada necesidad y recibe atención personalizada.
+      </p>
+
+      <!-- Actions -->
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a
+          href="#productos"
+          class="group inline-flex items-center justify-center gap-2 rounded-lg bg-gray-950 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-gray-800"
+        >
+          Ver productos
+
+          <IconArrowRight
+            className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+          />
+        </a>
+
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 px-6 py-3.5 text-sm font-semibold text-gray-700 transition-colors hover:border-gray-300 hover:bg-gray-50"
+        >
+          <IconBrandWhatsapp className="h-5 w-5" />
+          Hablar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,110 @@
+---
+import { IconBrandWhatsapp, IconMail, IconPhone } from '@tabler/icons-react'
+
+const currentYear = new Date().getFullYear()
+
+const navigation = [
+  { name: 'Inicio', href: '#hero' },
+  { name: 'Soluciones', href: '#soluciones' },
+  { name: 'Productos', href: '#productos' },
+  { name: 'Nosotros', href: '#nosotros' },
+  { name: 'Contacto', href: '#contacto' },
+]
+
+const contact = {
+  whatsapp: 'https://wa.me/573173552802',
+  phone: 'tel:+573173552802',
+  email: 'mailto:kevinvilleperez@gmail.com',
+}
+---
+
+<footer class="border-t border-gray-200 bg-white">
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <!-- Main footer -->
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr]">
+      <!-- Brand -->
+      <div class="max-w-sm">
+        <a href="#hero" class="text-lg font-semibold tracking-tight text-gray-950">
+          Piscinas Landing
+        </a>
+
+        <p class="mt-4 text-sm leading-6 text-gray-600">
+          Soluciones, repuestos, accesorios y productos para el cuidado y mantenimiento de piscinas.
+        </p>
+
+        <a
+          href={contact.whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-gray-950 transition-colors hover:text-gray-600"
+        >
+          <IconBrandWhatsapp className="h-5 w-5" />
+
+          Hablar por WhatsApp
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <div>
+        <h2 class="text-sm font-semibold text-gray-950">Navegación</h2>
+
+        <nav class="mt-4">
+          <ul class="space-y-3">
+            {
+              navigation.map(item => (
+                <li>
+                  <a
+                    href={item.href}
+                    class="text-sm text-gray-600 transition-colors hover:text-gray-950"
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h2 class="text-sm font-semibold text-gray-950">Contacto</h2>
+
+        <ul class="mt-4 space-y-4">
+          <li>
+            <a
+              href={contact.phone}
+              class="flex items-start gap-3 text-sm text-gray-600 transition-colors hover:text-gray-950"
+            >
+              <IconPhone className="mt-0.5 h-5 w-5 shrink-0" />
+
+              <span>+57 317 355 2802</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href={contact.email}
+              class="flex items-start gap-3 break-all text-sm text-gray-600 transition-colors hover:text-gray-950"
+            >
+              <IconMail className="mt-0.5 h-5 w-5 shrink-0" />
+
+              <span>kevinvilleperez@gmail.com</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom -->
+    <div
+      class="mt-10 flex flex-col gap-3 border-t border-gray-200 pt-6 text-xs text-gray-500 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>
+        © {currentYear} Piscinas Landing. Todos los derechos reservados.
+      </p>
+
+      <p>Soluciones para piscinas</p>
+    </div>
+  </div>
+</footer>

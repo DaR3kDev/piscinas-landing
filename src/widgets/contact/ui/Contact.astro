@@ -1,0 +1,61 @@
+---
+import { IconArrowRight, IconBrandWhatsapp, IconPhone } from '@tabler/icons-react'
+
+const whatsappUrl = 'https://wa.me/573173552802'
+const phoneUrl = 'tel:+573173552802'
+---
+
+<section id="contacto" class="section-reveal bg-white">
+  <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
+    <div class="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+      <!-- Content -->
+      <div class="max-w-2xl">
+        <div class="mb-5 flex items-center gap-3">
+          <span class="h-1 w-1 rounded-full bg-gray-950" aria-hidden="true"></span>
+
+          <span class="text-sm font-medium tracking-wide text-gray-500"> Contacto </span>
+        </div>
+
+        <h2 class="text-3xl font-semibold tracking-[-0.02em] text-gray-950 sm:text-4xl lg:text-5xl">
+          Hablemos sobre lo que necesitas.
+        </h2>
+
+        <p class="mt-5 max-w-xl text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">
+          Consulta disponibilidad, precios, repuestos, accesorios o cualquier producto para tu
+          piscina.
+        </p>
+
+        <p class="mt-4 text-sm leading-6 text-gray-500">
+          Te atenderemos y te ayudaremos a encontrar la opción adecuada.
+        </p>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex flex-col gap-3 sm:flex-row lg:shrink-0">
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group inline-flex items-center justify-center gap-2 rounded-lg bg-gray-950 px-6 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-gray-800"
+        >
+          <IconBrandWhatsapp className="h-5 w-5" />
+
+          Hablar por WhatsApp
+
+          <IconArrowRight
+            className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+          />
+        </a>
+
+        <a
+          href={phoneUrl}
+          class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 px-6 py-3.5 text-sm font-semibold text-gray-700 transition-colors duration-200 hover:border-gray-300 hover:bg-gray-50"
+        >
+          <IconPhone className="h-5 w-5" />
+
+          Llamar
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

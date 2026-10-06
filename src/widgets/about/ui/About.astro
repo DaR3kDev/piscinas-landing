@@ -1,0 +1,80 @@
+---
+import { IconBuildingStore, IconCheck, IconMessageCircle } from '@tabler/icons-react'
+
+const highlights = [
+  'Atención personalizada para cada cliente',
+  'Productos, repuestos y accesorios para piscinas',
+  'Asesoría para encontrar la solución adecuada',
+]
+---
+
+<section id="nosotros" class="section-reveal border-b border-gray-200 bg-white">
+  <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+    <div class="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-20">
+      <!-- Content -->
+      <div>
+        <div class="mb-5 inline-flex items-center gap-3">
+          <span class="h-px w-8 bg-gray-950" aria-hidden="true"></span>
+
+          <span class="text-sm font-medium tracking-wide text-gray-600"> Nosotros </span>
+        </div>
+
+        <h2
+          class="max-w-3xl text-3xl font-semibold tracking-[-0.02em] text-gray-950 sm:text-4xl lg:text-5xl"
+        >
+          Soluciones y experiencia para el cuidado de tu piscina.
+        </h2>
+
+        <div class="mt-6 max-w-2xl space-y-4">
+          <p class="text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">
+            Somos una empresa enfocada en ofrecer productos, repuestos, equipos y accesorios para el
+            mantenimiento y funcionamiento de piscinas.
+          </p>
+
+          <p class="text-base leading-7 text-gray-600">
+            Buscamos brindar una atención cercana y ayudarte a encontrar los productos adecuados
+            según las necesidades de tu piscina.
+          </p>
+        </div>
+      </div>
+
+      <!-- Highlights -->
+      <div class="border-t border-gray-200 pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+        <div class="flex items-center gap-3">
+          <IconBuildingStore className="h-6 w-6 text-gray-950" strokeWidth={1.7} />
+
+          <h3 class="text-base font-semibold text-gray-950">Lo que nos caracteriza</h3>
+        </div>
+
+        <ul class="mt-7 space-y-5">
+          {
+            highlights.map(highlight => (
+              <li class="flex items-start gap-3">
+                <IconCheck className="mt-0.5 h-5 w-5 shrink-0 text-gray-950" strokeWidth={1.8} />
+
+                <span class="text-sm leading-6 text-gray-600">{highlight}</span>
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="mt-8 border-t border-gray-200 pt-6">
+          <div class="flex items-start gap-3">
+            <IconMessageCircle
+              className="mt-0.5 h-5 w-5 shrink-0 text-gray-400"
+              strokeWidth={1.7}
+            />
+
+            <div>
+              <p class="text-sm font-medium text-gray-950">¿Tienes una necesidad específica?</p>
+
+              <p class="mt-1 text-sm leading-6 text-gray-500">
+                Escríbenos y te ayudamos a encontrar una solución.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
